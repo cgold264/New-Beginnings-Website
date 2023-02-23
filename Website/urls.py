@@ -19,4 +19,6 @@ from django.urls import include, path, re_path
 urlpatterns = [
     path('NewBeginnings/', include('NewBeginnings.urls')),
     path('admin/', admin.site.urls),
+    path('home/', include('NewBeginnings.urls')),
+    #path('', views.index, name='index'),
 ]
