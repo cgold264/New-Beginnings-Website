@@ -10,4 +10,10 @@ def index(req):
 def home(req):
     return render(req, 'index.html')
 
+def about(req):
+    return render(req, 'about.html')
+
+def testimonials(req):
+    return render(req, 'contect.html')
+
 # Create your views here.
