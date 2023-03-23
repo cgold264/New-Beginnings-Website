@@ -23,4 +23,5 @@ urlpatterns = [
     path('about/', include('NewBeginnings.urls')),
     path('testimonials/', include('NewBeginnings.urls')),
     path('contact/', include('NewBeginnings.urls')),
+    path('cms/', include('cms.urls')),
 ]

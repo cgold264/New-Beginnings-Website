@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+# -*- coding: utf-8 -*-
 import os
+gettext = lambda s: s
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,9 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cms',  # django CMS itself
+    'treebeard',  # utilities for implementing a tree
+    'menus',  # helper for model independent hierarchical website navigation
+    'sekizai',  # for JavaScript and CSS management
+    'djangocms_admin_style',  # for the admin skin. You **must** add 'djangocms_admin_style' in the list **before** 'django.contrib.admin'.
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
+    'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -47,6 +56,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'Website.urls'
@@ -62,8 +76,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
             ],
         },
+        'DIRS': ['templates'],
     },
 ]
 
@@ -103,6 +120,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -122,3 +141,21 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
 STATIC_ROOT=os.path.join(BASE_DIR,'assets')
+
+#CMS requirements
+
+LANGUAGES = [
+    ('en-us', 'English'),
+    ('de', 'German'),
+]
+
+SITE_ID = True
+
+CMS_TEMPLATES = (
+    ('index.html', 'Template Index'),
+    ('about.html', 'Template About'),
+    ('contact.html', 'Template Contact'),
+)
+
+X_FRAME_OPTIONS = "ALLOWALL"
+XS_SHARING_ALLOWED_METHODS = ["POST", "GET", "OPTIONS", "PUT", "DELETE"]
