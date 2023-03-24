@@ -18,10 +18,10 @@ from django.urls import include, path, re_path
 
 urlpatterns = [
     path('NewBeginnings/', include('NewBeginnings.urls')),
-    path('admin/', admin.site.urls),
     path('', include('NewBeginnings.urls')),
     path('about/', include('NewBeginnings.urls')),
     path('testimonials/', include('NewBeginnings.urls')),
     path('contact/', include('NewBeginnings.urls')),
-    path('cms/', include('cms.urls')),
+    path('admin/', admin.site.urls),
+    re_path(r'^', include('cms.urls')),
 ]

@@ -151,11 +151,9 @@ LANGUAGES = [
 
 SITE_ID = True
 
-CMS_TEMPLATES = (
-    ('index.html', 'Template Index'),
-    ('about.html', 'Template About'),
-    ('contact.html', 'Template Contact'),
-)
+CMS_TEMPLATES = [
+    ('home.html', 'Home page template'),
+]
 
 X_FRAME_OPTIONS = "ALLOWALL"
 XS_SHARING_ALLOWED_METHODS = ["POST", "GET", "OPTIONS", "PUT", "DELETE"]
