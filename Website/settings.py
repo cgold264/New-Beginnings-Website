@@ -152,7 +152,10 @@ LANGUAGES = [
 SITE_ID = True
 
 CMS_TEMPLATES = [
+    ('base.html', 'Base page template'),
+    ('menu.html', 'Menu template'),
     ('home.html', 'Home page template'),
+    ('feature.html', 'Feature page template'),
 ]
 
 X_FRAME_OPTIONS = "ALLOWALL"
