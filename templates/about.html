@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="About Page">
     <meta name="author" content="Connor Goldschmidt and Max Brown">
-    <meta name="generator" content="Hugo 0.104.2">
     <title>About</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/pricing/">
@@ -23,7 +22,9 @@
     <!-- Navbar  -->
     <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top shadow-sm">
       <div class="container">
-        <a href="../index.html" class="navbar-brand"><img src="/images/new-beg-base_CROPPED.png" alt="New Beginnings"></a>
+        <a href="{% static '../index.html'%}" class="navbar-brand">
+          <img src="{% static '/images/new-beg-base_CROPPED.png'%}" class="w-75" alt="New Beginnings">
+        </a>
 
         <button class="navbar-toggler" 
           type="button" 
@@ -35,23 +36,16 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a href="../index.html" class="nav-link">Home</a>
+              <a href="" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="about.html" class="nav-link">About</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Resources
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Blog</a></li>
-                <li><a class="dropdown-item" href="#">Federal Loan News</a></li>
-                <li><a class="dropdown-item" href="#">Something Else</a></li>
-              </ul>
+              <a href="{% static 'about.html' %}" class="nav-link">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="#contact" class="nav-link btn btn-primary rounded-pill text-light px-3 ms-2">Contact</a>
+              <a href="{%static 'about.html' %}" class="nav-link">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a href="{%static 'contact.html' %}" class="nav-link btn btn-warning rounded-pill text-dark px-3 ms-2">Contact</a>
             </li>
           </ul>
         </div>
@@ -59,21 +53,21 @@
     </nav>
 
     <!-- Showcase Area -->
-    <section class="bg-primary text-light p-5 text-left">
-      <div class="container">
-        <h2>About Us</h2>
-        <h2 class="text-center p-5">Developing personal plans of attack to repay student loans through years of expertise</h2>
+    <section class="bg-warning bg-opacity-50">
+      <div class="container py-5 px-5">
+        <h1 class="display-3">About Our Team</h1>
+        <h1 class="h2 text-dark">Experts Who Care</h1>
       </div>
     </section>
 
     <!-- Meet the Team -->
-    <section class="bg-light text-dark p-5">
+    <section class=" text-dark p-5">
       <div class="container text-center">
-        <h2 class="pb-5">Meet Our Founder</h2>
+        <h2 class="pb-4">Meet Our Founder</h2>
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-lg-4">
-              <img src="/images/carey_profile.png" class="img-fluid rounded-start pt-sm-4 pt-lg-0" alt="">
+              <img src="{% static '/images/carey_profile.png'%}" class="img-fluid rounded-start pt-sm-4 pt-lg-0" alt="">
             </div>
             <div class="col-md-8 mx-auto">
               <div class="card-body">
@@ -87,36 +81,25 @@
       </div>
     </section>
 
-    <!-- How We're Different -->
-    <section class="bg-primary text-light p-5">
-      <div class="container text-center">
-        <h2>How We're Different</h2>
-        <p class="p-4">
-          Every student loan borrower brings their individual student loan story, questions, frustrations, short and loan term goals.  
-          Carefully listening to each borrower, an individualized student loan assessment is created and discussed.  
-          It’s our mission and responsibility to become your long-term student loan advocate, 
-          ensuring that you gain control over your student loan repayment.</p>
-      </div>
-    </section>
 
     <!-- Footer -->
     <div class="container-fluid p-4">
       <div class="row justify-content-between align-items-center">
         <!-- Company Icon -->
         <div class="col">
-          <img src="/images/new-icon_64.png" class="w-auto mx-auto" alt="">
+          <img src="{% static '/images/new-icon_64.png' %}" class="w-auto mx-auto w-50" alt="">
         </div>
         <!-- Social Media Links -->
         <div class="col">
           <div class="row justify-content-evenly">
             <div class="col col-md-auto">
-              <a href="https://www.linkedin.com/company/newbeginnings-spokane/">
-                <img src="/images/icons/linkedin-64-rounded.png" alt="">
+              <a href="https://www.linkedin.com/company/newbeginnings-spokane/" target="_blank">
+                <img src="{% static '/images/icons/linkedin-64-rounded.png' %}" class="w-75" alt="">
               </a>
             </div>
             <div class="col col-md-auto">
-              <a href="https://www.youtube.com/@newbeginningsspokane3923">
-              <img src="/images/icons/youtube-64-rounded.png" alt="">
+              <a href="https://www.youtube.com/@newbeginningsspokane3923" target="_blank">
+              <img src="{% static '/images/icons/youtube-64-rounded.png' %}" class="w-75" alt="">
               </a>
             </div>
           </div>
@@ -124,10 +107,10 @@
         <!-- Copyright -->
         <div class="col">
           <small class="d-block mb-3 text-muted text-end">&copy; New Beginnings LLC 2022</small>
+          <!-- <a href="https://www.flaticon.com/free-icons/guide" title="guide icons">Guide icons created by Cuputo - Flaticon</a> -->
         </div>
       </div>
     </div>
-
 
   </body>
   </html>
