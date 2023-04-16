@@ -160,3 +160,10 @@ CMS_TEMPLATES = [
 
 X_FRAME_OPTIONS = "ALLOWALL"
 XS_SHARING_ALLOWED_METHODS = ["POST", "GET", "OPTIONS", "PUT", "DELETE"]
+
+# Django-seo configuration
+MIGRATION_MODULES = {
+    'djangoseo': 'path.to.migrations',
+}
+
+SEO_USE_REDIRECTS = True  # for tracking 404 errors
